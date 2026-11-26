@@ -5,6 +5,22 @@ class Etudiant:
         self.matricule = matricule
 
     def afficher(self):
-        print(f"Nom : {self.nom}")
-        print(f"Prénom : {self.prenom}")
-        print(f"Matricule : {self.matricule}")
+        print(f"{self.nom} {self.prenom} - {self.matricule}")
+
+
+class GestionEtudiants:
+    def __init__(self):
+        self.etudiants = []
+
+    def ajouter_etudiant(self, etudiant):
+        self.etudiants.append(etudiant)
+
+    def supprimer_etudiant(self, matricule):
+        self.etudiants = [
+            e for e in self.etudiants
+            if e.matricule != matricule
+        ]
+
+    def afficher_etudiants(self):
+        for etudiant in self.etudiants:
+            etudiant.afficher()
